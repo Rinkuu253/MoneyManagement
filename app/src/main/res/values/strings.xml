@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Thrive</string>
+    <string name="title_activity_main_menu">main_menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string-array name="spinner_items">
+        <item>Pengeluaran</item>
+        <item>Pemasukan</item>
+    </string-array>
+</resources>

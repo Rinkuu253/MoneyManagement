@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/thrive_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/thrive_logo_rounded"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Thrive"
+        tools:targetApi="31">
+        <activity
+            android:name=".editwallet_keluarga"
+            android:exported="false" />
+        <activity
+            android:name=".wallet_activity_keluarg"
+            android:exported="false" />
+        <activity
+            android:name=".chooseRoleFamily"
+            android:exported="false" />
+        <activity
+            android:name=".pencatatan_keuangan_keluarga"
+            android:exported="false" />
+        <activity
+            android:name=".create_family"
+            android:exported="false" />
+        <activity
+            android:name=".family_code"
+            android:exported="false" />
+        <activity
+            android:name=".register_user"
+            android:exported="false" />
+        <activity
+            android:name=".loginUser"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".editwallet"
+            android:exported="false" />
+        <activity
+            android:name=".pencatatan_keuangan"
+            android:exported="false" />
+        <activity
+            android:name=".wallet_activity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
