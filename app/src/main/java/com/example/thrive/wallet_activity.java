@@ -63,11 +63,11 @@ public class wallet_activity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 typeCatatan = (String) parent.getItemAtPosition(position);
 
-                if(typeCatatan == "Pengeluaran"){
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.color_spinner_layout, items);
-                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
-                    catatanSpinner.setAdapter(adapter);
-                }
+//                if(typeCatatan == "Pengeluaran"){
+//                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.color_spinner_layout, items);
+//                    adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+//                    catatanSpinner.setAdapter(adapter);
+//                }
             }
 
             @Override
