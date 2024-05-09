@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_two"
+    tools:context=".KeluargaFragmentAktif">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <include
+            android:id="@+id/topBarDate"
+            layout="@layout/top_bar_keluarga"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topBarDate"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    android:elevation="10dp"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Report Keluarga"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/calibri_bold"
+                            android:textColor="@color/black"
+                            android:layout_margin="5dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <org.eazegraph.lib.charts.PieChart
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/piechart"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:padding="6dp"
+                                android:layout_weight="1"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginBottom="15dp"
+
+                                />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_vertical"
+                                >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical"
+                                    >
+                                        <ImageView
+                                            android:id="@+id/decMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/baseline_chevron_left_24_black"/>
+                                        <TextView
+                                            android:id="@+id/monthYearGraph"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textAlignment="center"
+                                            android:fontFamily="@font/calibri_bold"
+                                            android:textSize="16sp"
+                                            android:text="September 2024"/>
+                                        <ImageView
+                                            android:id="@+id/addMonth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="40dp"
+                                            android:src="@drawable/baseline_chevron_right_24_black"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginBottom="20dp"
+                                    >
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginTop="5dp">
+                                        <View
+                                            android:layout_marginTop="3dp"
+                                            android:layout_width="15dp"
+                                            android:layout_height="15dp"
+                                            android:background="@color/Python"/>
+                                        <TextView
+                                            android:id="@+id/income"
+                                            android:layout_marginStart="10dp"
+                                            android:textColor="@color/black"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="1,000,000"
+                                            android:fontFamily="@font/calibri_regular"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginTop="10dp">
+                                        <View
+                                            android:layout_marginTop="3dp"
+                                            android:layout_width="15dp"
+                                            android:layout_height="15dp"
+                                            android:background="@color/color_one"/>
+                                        <TextView
+                                            android:id="@+id/loss"
+                                            android:textColor="@color/black"
+                                            android:layout_marginStart="10dp"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="1,000,000"
+                                            android:fontFamily="@font/calibri_regular"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginTop="10dp">
+                                        <View
+                                            android:layout_marginTop="3dp"
+                                            android:layout_width="15dp"
+                                            android:layout_height="15dp"
+                                            android:background="@color/Java"/>
+                                        <TextView
+                                            android:id="@+id/total"
+                                            android:layout_marginStart="10dp"
+                                            android:textColor="@color/black"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="1,000,000"
+                                            android:fontFamily="@font/calibri_regular"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Anggota Keluarga"
+                            android:textSize="23sp"
+                            android:fontFamily="@font/calibri_bold"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"/>
+
+                        <!--View to display the line-->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="5dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerAnggotaKeluarga"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"/>
+
+                    </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>

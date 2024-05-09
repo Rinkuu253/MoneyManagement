@@ -44,6 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TOTAL_PENGHASILAN = "total_penghasilan";
     private static final String COLUMN_WALLET_TOTAL_DATE = "date";
 
+
+
     // Keluarga table columns
     private static final String COLUMN_KELUARGA_ID = "keluarga_id";
     private static final String COLUMN_KELUARGA_USER_ID = "user_id";

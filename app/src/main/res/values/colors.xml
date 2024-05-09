@@ -2,7 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="themeColor">#0874bc</color>
-    <color name="defaultGray">#D3D3D3</color>
-    <color name="defaultBackground">#e9f5f9</color>
+    <color name="lightBlue">#7dc2f3</color>
+
+    <color name="colorPrimary">#019FF4</color>
+    <color name="colorPrimaryDark">#024265</color>
+    <color name="colorAccent">#05af9b</color>
+
+    <color name="color_one">#fb7268</color>
+    <color name="color_white">#ededf2</color>
+    <color name="color_two">#EFEFEF</color>
+
+    <color name="R">#FABA5C</color>
+    <color name="Python">#66BB6A</color>
+    <color name="CPP">#DDB94B</color>
+    <color name="Java">#29B6F6</color>
 </resources>

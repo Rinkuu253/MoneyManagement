@@ -2,39 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
-        android:icon="@drawable/thrive_logo"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/thrive_logo_rounded"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Thrive"
+        android:theme="@style/Theme.MonMan"
         tools:targetApi="31">
         <activity
-            android:name=".editwallet_keluarga"
+            android:name=".CatatanAnggotaDialog"
             android:exported="false" />
         <activity
-            android:name=".wallet_activity_keluarg"
+            android:name=".DeleteFamilyDialog"
+            android:exported="false"
+            android:label="@string/title_activity_delete_family_dialog"
+            android:theme="@style/Theme.MonMan" />
+        <activity
+            android:name=".JoinKeluarga"
             android:exported="false" />
         <activity
-            android:name=".chooseRoleFamily"
+            android:name=".tambah_keluarga"
             android:exported="false" />
         <activity
-            android:name=".pencatatan_keuangan_keluarga"
+            android:name=".EditCatatan"
             android:exported="false" />
         <activity
-            android:name=".create_family"
+            android:name=".TambahCatatan"
             android:exported="false" />
         <activity
-            android:name=".family_code"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".register_user"
-            android:exported="false" />
-        <activity
-            android:name=".loginUser"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,17 +45,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".editwallet"
-            android:exported="false" />
-        <activity
-            android:name=".pencatatan_keuangan"
-            android:exported="false" />
-        <activity
-            android:name=".wallet_activity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/itemAnggotaKeluarga"
+    android:elevation="10dp"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    android:layout_marginTop="4dp"
+    android:padding="15dp"
+    >
+    <ImageView
+        android:id="@+id/profilAnggotaKeluarga"
+        android:textColor="@color/black"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Pengeluaran"
+        android:textSize="20sp"
+        android:src="@drawable/icon_anak"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/namaAnggotaKeluarga"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Matthew Marvelino"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/calibri_bold"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/roleAnggotaKeluarga"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Role User"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/calibri_regular"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:gravity="end"-->
+<!--        >-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="5dp">-->
+<!--            <View-->
+<!--                android:layout_width="15dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                android:background="@color/Python"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/income"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="1,000,000"-->
+<!--                android:fontFamily="@font/calibri_regular"-->
+<!--                android:textSize="16sp" />-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="10dp">-->
+<!--            <View-->
+<!--                android:layout_width="15dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                android:background="@color/color_one"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/loss"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="1,000,000"-->
+<!--                android:fontFamily="@font/calibri_regular"-->
+<!--                android:textSize="16sp" />-->
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="10dp">-->
+<!--            <View-->
+<!--                android:layout_width="15dp"-->
+<!--                android:layout_height="15dp"-->
+<!--                android:background="@color/Java"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/total"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="1,000,000"-->
+<!--                android:fontFamily="@font/calibri_regular"-->
+<!--                android:textSize="16sp" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>
