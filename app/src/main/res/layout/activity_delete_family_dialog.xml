@@ -1,44 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Are you sure you want to delete?"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:layout_gravity="center_horizontal"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <Button
-            android:id="@+id/yesButton"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yes"
-            android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"/>
+            android:text="Do You want to delete this family?\nIt is not reversible"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/calibri_regular"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal"/>
 
-        <Button
-            android:id="@+id/noButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No"
-            android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textColor="@android:color/white"
+                android:background="@drawable/primary_button"
+                android:backgroundTint="#008013"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/noButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textColor="@android:color/white"
+                android:background="@drawable/primary_button"
+                android:backgroundTint="#990000"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

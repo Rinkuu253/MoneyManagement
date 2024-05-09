@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String passw = passwordInput.getText().toString();
 
                 try {
-                    Cursor cursor = db.getUserData(nomorHp);
+                    Cursor cursor = db.getUserData(nama);
                     if(cursor.getCount() > 0){
                         Toast.makeText(RegisterActivity.this, "User Already Registered", Toast.LENGTH_SHORT).show();
                     } else{

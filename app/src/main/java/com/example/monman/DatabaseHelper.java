@@ -166,7 +166,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_KODE_KELUARGA_USER + ", " +
                 COLUMN_FAMILY_ROLE +
                 " FROM " + TABLE_USER +
-                " WHERE " + COLUMN_NO_HP + " = ? AND " + COLUMN_PASSWORD + " = ?";
+                " WHERE " + COLUMN_USER_NAME + " = ? AND " + COLUMN_PASSWORD + " = ?";
 
         // Define the selection arguments
         String[] selectionArgs = {username, password};
@@ -308,4 +308,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_FAMILY_ROLE, roleKeluarga);
         return db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(id)});
     }
+
+    public boolean deleteKeluarga(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowsAffected = db.delete(TABLE_KELUARGA, COLUMN_KELUARGA_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return rowsAffected > 0; // If rowsAffected is greater than 0, deletion was successful
+    }
+
+    public int resetKeluargaUser(String kodeKeluarga) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_KODE_KELUARGA_USER, "0");
+        values.put(COLUMN_FAMILY_ROLE, "Pribadi");
+        return db.update(TABLE_USER, values, COLUMN_KODE_KELUARGA_USER + " = ?", new String[]{String.valueOf(kodeKeluarga)});
+    }
+
 }

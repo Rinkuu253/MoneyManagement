@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("directCatatanFragment", false)) {
             // If present, navigate to CatatanFragment directly
             replaceFragment(new CatatanFragment(), bundle);
+            binding.bottomNavigationView.setSelectedItemId(R.id.catatan);
         }
 
         if (getIntent().getBooleanExtra("directFamilyFragment", false)) {
@@ -84,8 +85,10 @@ public class MainActivity extends AppCompatActivity {
             if(Objects.equals(familyRole, "Pribadi")){
 //                    Toast.makeText(this, familyRole, Toast.LENGTH_SHORT).show();
                 replaceFragment(new KeluargaFragment(), bundle);
+                binding.bottomNavigationView.setSelectedItemId(R.id.keluarga);
             } else{
                 replaceFragment(new KeluargaFragmentAktif(), bundle);
+                binding.bottomNavigationView.setSelectedItemId(R.id.keluarga);
             }
         }
 

@@ -53,15 +53,15 @@
                     android:id="@+id/roleUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/calibri_bold"
                     android:text="Role Orang"
                     android:textSize="20sp"
-                    android:fontFamily="@font/calibri_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.015"
+                    app:layout_constraintHorizontal_bias="0.014"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/namaUser"
-                    app:layout_constraintVertical_bias="0.392" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/profilePictCard"
@@ -229,6 +229,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
+                        android:fontFamily="@font/calibri_regular"
                         android:text="Pasca rilis laporan kinerja sepanjang tiga bulan pertama 2024, saham-saham industri perbankan kompak mengalami penurunan."
                         android:textSize="12sp" />
 
@@ -258,6 +259,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
+                        android:fontFamily="@font/calibri_regular"
                         android:text="Cek tingkat kurs dollar-rupiah yang kembali alami penguatan memasuki pekan pertama Mei 2024. Rupiah berada kisaran Rp16.185 di perdagangan pasar spot pada Kamis (2/5)."
                         android:textSize="12sp" />
 

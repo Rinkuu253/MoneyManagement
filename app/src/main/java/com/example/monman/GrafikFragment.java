@@ -36,6 +36,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
 
 public class GrafikFragment extends Fragment {
@@ -215,36 +216,38 @@ public class GrafikFragment extends Fragment {
 
     private void makeGraph(){
         ArrayList<Entry> entries = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<>();
 
         Cursor cursor = db.getDataProfitLossPerWeek(awalMinggu, akhirMinggu, userId, familyCode);
-            for (int i = 0; i < 7; i++) {
-                SimpleDateFormat dateFormatWeekText = new SimpleDateFormat("yyyy-MM-dd", new Locale("id", "ID"));
-                SimpleDateFormat dateFormatText = new SimpleDateFormat("d", new Locale("id", "ID"));
-                Calendar calendar = (Calendar) currentWeek.clone();
-                calendar.add(Calendar.DAY_OF_YEAR, i);
-//                int dayOfYear = calendar.get(Calendar.DAY_OF_MONTH); // Get day of the year
-                String currentDate = dateFormatWeekText.format(calendar.getTime());
-                boolean entryFound = false;
-                cursor.moveToFirst();
-                while (!cursor.isAfterLast()) {
-                    String cursorDate = cursor.getString(0);
-                    if (cursorDate.equals(currentDate)) {
-                        if(Objects.equals(cursor.getString(1), "Pengeluaran")){
-                            entries.add(new Entry(i, cursor.getInt(2)));
-                            entryFound = true;
-                            break;
-                        }
+        Calendar startOfWeek = (Calendar) currentWeek.clone();
+        startOfWeek.set(Calendar.DAY_OF_WEEK, startOfWeek.getFirstDayOfWeek());
+
+        for (int i = 0; i < 7; i++) {
+            SimpleDateFormat dateFormatWeekText = new SimpleDateFormat("yyyy-MM-dd", new Locale("id", "ID"));
+            SimpleDateFormat dateFormatText = new SimpleDateFormat("d", new Locale("id", "ID"));
+            Calendar calendar = (Calendar) startOfWeek.clone();
+            calendar.add(Calendar.DAY_OF_YEAR, i);
+            String currentDate = dateFormatWeekText.format(calendar.getTime());
+            labels.add(dateFormatText.format(calendar.getTime()));
+            boolean entryFound = false;
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                String cursorDate = cursor.getString(0);
+                if (cursorDate.equals(currentDate)) {
+                    if(Objects.equals(cursor.getString(1), "Pengeluaran")){
+                        entries.add(new Entry(i, cursor.getInt(2))); // Use 'i' for x value
+                        entryFound = true;
+                        break;
                     }
-                    cursor.moveToNext();
                 }
-
-                if (!entryFound) {
-                    entries.add(new Entry(i, 0));
-                }
+                cursor.moveToNext();
             }
-            cursor.close();
 
-
+            if (!entryFound) {
+                entries.add(new Entry(i, 0)); // Use 'i' for x value
+            }
+        }
+        cursor.close();
 
         LineDataSet dataSet = new LineDataSet(entries, "Label");
         dataSet.setColor(Color.BLUE);
@@ -261,6 +264,7 @@ public class GrafikFragment extends Fragment {
         legend.setEnabled(false); // Disable legend
 
         XAxis xAxis = lineChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         YAxis yAxisRight = lineChart.getAxisRight();
@@ -268,4 +272,5 @@ public class GrafikFragment extends Fragment {
 
         lineChart.invalidate();
     }
+
 }

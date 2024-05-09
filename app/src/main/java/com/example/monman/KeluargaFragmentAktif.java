@@ -1,13 +1,11 @@
 package com.example.monman;
 
-import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,7 +88,7 @@ public class KeluargaFragmentAktif extends Fragment {
                     if(!Objects.equals(familyRole, "Ayah")){
                         Toast.makeText(getActivity(), "Anda Tidak Memiliki Akses", Toast.LENGTH_SHORT).show();
                     } else{
-                        DeleteFamilyDialog dialog = new DeleteFamilyDialog(getActivity());
+                        DeleteFamilyDialog dialog = new DeleteFamilyDialog(getActivity(), userId, username, familyRole, familyCode);
                         dialog.show();
                     }
                 }

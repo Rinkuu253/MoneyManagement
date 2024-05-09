@@ -51,7 +51,12 @@ public class AnggotaKeluargaAdapter extends RecyclerView.Adapter<AnggotaKeluarga
             @Override
             public void onClick(View v) {
                 if (loggedInUserRole.equals("Anak")) {
-                    Toast.makeText(context, "Anda Tidak Memiliki Akses", Toast.LENGTH_SHORT).show();
+                    if(familyRole.equals("Anak")){
+                        CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId);
+                        dialog.show();
+                    } else{
+                        Toast.makeText(context, "Anda Tidak Memiliki Akses", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId);
                     dialog.show();
