@@ -16,8 +16,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
     private static final String TABLE_CATATAN = "catatan";
     private static final String TABLE_KELUARGA = "keluarga";
-    private static final String TABLE_GOALS = "goals";
-    private static final String TABLE_GOALS_KELUARGA = "goals_keluarga";
 
     private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_NAME = "user_name";
@@ -36,17 +34,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String COLUMN_KELUARGA_ID = "keluarga_id";
     private static final String COLUMN_NAMA_KELUARGA = "nama_keluarga";
-
-    private static final String COLUMN_GOALS_ID = "goals_id";
-    private static final String COLUMN_GOALS_USER_ID = "user_id";
-    private static final String COLUMN_GOALS_NAME = "goals_name";
-    private static final String COLUMN_GOALS_AMOUNT = "amount";
-
-    // Goals_keluarga table columns
-    private static final String COLUMN_GOALS_KELUARGA_ID = "goals_keluarga_id";
-    private static final String COLUMN_GOALS_KELUARGA_KELUARGA_ID = "keluarga_id";
-    private static final String COLUMN_GOALS_KELUARGA_NAME = "goals_name";
-    private static final String COLUMN_GOALS_KELUARGA_AMOUNT = "amount";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -81,24 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_NAMA_KELUARGA + " TEXT"
                 + ")";
         db.execSQL(CREATE_TABLE_KELUARGA);
-
-        // Create goals table
-        String CREATE_TABLE_GOALS = "CREATE TABLE IF NOT EXISTS " + TABLE_GOALS + "("
-                + COLUMN_GOALS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_GOALS_USER_ID + " TEXT,"
-                + COLUMN_GOALS_NAME + " TEXT,"
-                + COLUMN_GOALS_AMOUNT + " REAL"
-                + ")";
-        db.execSQL(CREATE_TABLE_GOALS);
-
-        // Create goals_keluarga table
-        String CREATE_TABLE_GOALS_KELUARGA = "CREATE TABLE IF NOT EXISTS " + TABLE_GOALS_KELUARGA + "("
-                + COLUMN_GOALS_KELUARGA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_GOALS_KELUARGA_KELUARGA_ID + " TEXT,"
-                + COLUMN_GOALS_KELUARGA_NAME + " TEXT,"
-                + COLUMN_GOALS_KELUARGA_AMOUNT + " REAL"
-                + ")";
-        db.execSQL(CREATE_TABLE_GOALS_KELUARGA);
     }
 
     @Override
@@ -106,9 +75,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATATAN);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_KELUARGA);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GOALS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GOALS_KELUARGA);
-
         // Recreate tables
         onCreate(db);
     }
