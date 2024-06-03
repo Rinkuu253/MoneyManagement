@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MonMan"
         tools:targetApi="31">
         <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
             android:name=".CatatanAnggotaDialog"
             android:exported="false" />
         <activity

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class HomeFragment extends Fragment {
     PieChart pieChart;
     private DatabaseHelper db;
 
+    private ImageView profile;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +63,7 @@ public class HomeFragment extends Fragment {
             incomeProfit = view.findViewById(R.id.income);
             lossLoss = view.findViewById(R.id.loss);
             todayMonthYear = view.findViewById(R.id.nowMonthYear);
+            profile = view.findViewById(R.id.profilePict);
             db = new DatabaseHelper(getActivity());
             currentDate = Calendar.getInstance();
             setData();
@@ -84,6 +88,18 @@ public class HomeFragment extends Fragment {
                 public void onClick(View v) {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://keuangan.kontan.co.id/news/nasabah-valas-wajib-merapat-intip-kurs-dollar-rupiah-di-bca-hari-ini-jumat-35"));
                     startActivity(browserIntent);
+                }
+            });
+
+            profile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), UserProfile.class);
+                    intent.putExtra("userId",String.valueOf(userId));
+                    intent.putExtra("username", String.valueOf(username));
+                    intent.putExtra("familyRole", familyRole);
+                    intent.putExtra("familyCode",familyCode);
+                    startActivity(intent);
                 }
             });
 
