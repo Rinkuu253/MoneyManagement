@@ -75,8 +75,9 @@ public class KeluargaFragmentAktif extends Fragment {
                     id_keluarga,
                     nama_anggota,
                     role_anggota,
-                    familyRole
-            );
+                    familyRole,
+                    userId,
+                    username);
             recyclerView.setAdapter(bk);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             setData();

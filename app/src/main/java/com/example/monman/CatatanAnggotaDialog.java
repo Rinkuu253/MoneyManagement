@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.KeyboardShortcutGroup;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class CatatanAnggotaDialog extends Dialog implements
         android.view.View.OnClickListener {
@@ -35,12 +37,15 @@ public class CatatanAnggotaDialog extends Dialog implements
     private ArrayList<String> id_catatan, id_user, tipe, deskripsi, total, tanggal, family_role, kode_keluarga, nama_pengguna;
     private DatabaseHelper db;
 
-    private String  userId, username, familyRole, familyCode;
+    private String  userId, username, familyRole, familyCode, loggedRole, loggedId, loggedName;
 
-    public CatatanAnggotaDialog(@NonNull Context context, String familyCode, String userId) {
+    public CatatanAnggotaDialog(Context context, String familyCode, String userId, String loggedInAsId, String loggedInUserRole, String loggedAsName) {
         super(context);
         this.familyCode = familyCode;
         this.userId = userId;
+        this.loggedId = loggedInAsId;
+        this.loggedRole = loggedInUserRole;
+        this.loggedName = loggedAsName;
     }
 
     @Override
@@ -51,6 +56,7 @@ public class CatatanAnggotaDialog extends Dialog implements
 
         ImageView leftDate = findViewById(R.id.monthBefore);
         ImageView rightDate = findViewById(R.id.monthAfter);
+        TextView kickfamily = findViewById(R.id.kickFamily);
 
         recyclerView = findViewById(R.id.recyclerWalletAnggota);
 
@@ -103,6 +109,35 @@ public class CatatanAnggotaDialog extends Dialog implements
             public void onClick(View v) {
                 currentDate.add(Calendar.MONTH, 1);
                 updateDateView();
+            }
+        });
+
+        kickfamily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int kick = db.resetKeluargaUserSpesific(userId);
+                if(kick != -1){
+                    Toast.makeText(getContext(), "Kick Success", Toast.LENGTH_SHORT).show();
+                    if(Objects.equals(userId, loggedId)){
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        intent.putExtra("userId",String.valueOf(loggedId));
+                        intent.putExtra("username", String.valueOf(loggedName));
+                        intent.putExtra("familyRole", "Pribadi");
+                        intent.putExtra("familyCode","0");
+                        intent.putExtra("directFamilyFragment", true);
+                        getContext().startActivity(intent);
+                        dismiss();
+                    } else{
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        intent.putExtra("userId",String.valueOf(loggedId));
+                        intent.putExtra("username", String.valueOf(loggedName));
+                        intent.putExtra("familyRole", loggedRole);
+                        intent.putExtra("familyCode",familyCode);
+                        intent.putExtra("directFamilyFragment", true);
+                        getContext().startActivity(intent);
+                        dismiss();
+                    }
+                };
             }
         });
     }

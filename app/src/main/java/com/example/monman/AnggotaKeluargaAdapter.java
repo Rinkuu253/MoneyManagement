@@ -17,15 +17,17 @@ public class AnggotaKeluargaAdapter extends RecyclerView.Adapter<AnggotaKeluarga
 
     ArrayList<String> kodeUser, kodeKeluarga, namaAnggota, roleAnggota;
 
-    private String loggedInUserRole; // Add this variable
+    private String loggedInUserRole, loggedInAsId, loggedAsName; // Add this variable
 
-    public AnggotaKeluargaAdapter(Context context, ArrayList<String> kodeUser, ArrayList<String> kodeKeluarga, ArrayList<String> namaAnggota, ArrayList<String> roleAnggota, String loggedInUserRole) {
+    public AnggotaKeluargaAdapter(Context context, ArrayList<String> kodeUser, ArrayList<String> kodeKeluarga, ArrayList<String> namaAnggota, ArrayList<String> roleAnggota, String loggedInUserRole, String loggedInAsId, String loggedInAsName) {
         this.context = context;
         this.kodeUser = kodeUser;
         this.kodeKeluarga = kodeKeluarga;
         this.namaAnggota = namaAnggota;
         this.roleAnggota = roleAnggota;
         this.loggedInUserRole = loggedInUserRole; // Store the logged-in user role
+        this.loggedInAsId = loggedInAsId;
+        this.loggedAsName = loggedInAsName;
     }
 
     @NonNull
@@ -52,13 +54,13 @@ public class AnggotaKeluargaAdapter extends RecyclerView.Adapter<AnggotaKeluarga
             public void onClick(View v) {
                 if (loggedInUserRole.equals("Anak")) {
                     if(familyRole.equals("Anak")){
-                        CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId);
+                        CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId,loggedInAsId, loggedInUserRole, loggedAsName);
                         dialog.show();
                     } else{
                         Toast.makeText(context, "Anda Tidak Memiliki Akses", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId);
+                    CatatanAnggotaDialog dialog = new CatatanAnggotaDialog(context, familyCode, userId,loggedInAsId, loggedInUserRole, loggedAsName);
                     dialog.show();
                 }
             }

@@ -291,4 +291,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update(TABLE_USER, values, COLUMN_KODE_KELUARGA_USER + " = ?", new String[]{String.valueOf(kodeKeluarga)});
     }
 
+    public int resetKeluargaUserSpesific(String userId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_KODE_KELUARGA_USER, "0");
+        values.put(COLUMN_FAMILY_ROLE, "Pribadi");
+        return db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(userId)});
+    }
+
 }

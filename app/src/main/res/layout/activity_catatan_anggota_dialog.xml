@@ -16,8 +16,8 @@
             android:orientation="vertical">
 
             <include
-                android:id="@+id/topBarDate"
-                layout="@layout/top_bar_date"/>
+                android:id="@+id/topBarDateFamily"
+                layout="@layout/top_bar_date_family"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/laporanTotalCatatan"
